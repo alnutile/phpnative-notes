@@ -1,17 +1,18 @@
 <script setup>
 import AppLayout from '@/Layouts/Layout.vue';
 import {useForm, usePage} from "@inertiajs/vue3";
-import ActionMessage from "@/Components/ActionMessage.vue";
-import { CheckIcon } from "@heroicons/vue/20/solid/index.js";
-import Resource from "@/Pages/Notes/Components/Resource.vue";
 import {useToast} from "vue-toastification";
+import Backup from "@/Pages/Settings/Components/Backup.vue";
 
 
 const toast = useToast()
 
 const props = defineProps({
-    note: Object
+    note: Object,
+    storage_path: String,
 })
+
+
 
 const migrate = useForm({})
 const seed = useForm({})
@@ -46,7 +47,14 @@ const runSeed = () => {
 
         <div>
             <h2 class="text-white text-2xl">Settings</h2>
-            <div class="max-w-full mx-auto dark:text-gray-300">
+            <div class="max-w-full mx-auto dark:text-gray-300 mt-10">
+                <div>Storage Page: {{ storage_path }}</div>
+
+                <div>
+                    <h2>Backup</h2>
+                    <Backup/>
+                </div>
+
                 <div class="flex justify-between gap-4 items-center">
                     <button @click="runMigrations" type="button">run migration</button>
                 </div>

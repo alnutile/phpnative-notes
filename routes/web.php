@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("/export", [\App\Http\Controllers\BackupController::class, 'backup'])->name("backup");
+
 Route::get('/settings', [\App\Http\Controllers\SettingsController::class, 'show'])->name('settings');
 
 Route::post("/notes/{note}/tag/{tag}/remove", [\App\Http\Controllers\TagController::class, 'remove'])->name('notes.tag.remove');

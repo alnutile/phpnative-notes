@@ -9,6 +9,7 @@ import Prism from "prismjs";
 import enUS from "@kangc/v-md-editor/lib/lang/en-US.js";
 import Toast, { TYPE } from "vue-toastification";
 import VueEasymde from "vue3-easymde";
+import { autoAnimatePlugin } from "@formkit/auto-animate/vue";
 window.axios = axios;
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 async function resolvePageComponent(path, pages) {
@@ -511,9 +512,9 @@ const toastOptions = {
 const appName = "Laravel";
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
-  resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Dashboard/Home.vue": () => import("./assets/Home-ff9455cf.js"), "./Pages/Notes/Components/Resource.vue": () => import("./assets/Resource-277c67e7.js"), "./Pages/Notes/Components/ResourceNoEditor.vue": () => import("./assets/ResourceNoEditor-cac4994d.js"), "./Pages/Notes/Create.vue": () => import("./assets/Create-2d3f80f5.js"), "./Pages/Notes/Index.vue": () => import("./assets/Index-d732d345.js"), "./Pages/Notes/Show.vue": () => import("./assets/Show-33fc0677.js"), "./Pages/Settings/Show.vue": () => import("./assets/Show-267249e3.js") })),
+  resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Dashboard/Home.vue": () => import("./assets/Home-05fa203c.js"), "./Pages/Notes/Components/ResourceNoEditor.vue": () => import("./assets/ResourceNoEditor-4fc0ec5d.js"), "./Pages/Notes/Create.vue": () => import("./assets/Create-eb53ddd4.js"), "./Pages/Notes/Index.vue": () => import("./assets/Index-9ea8e849.js"), "./Pages/Notes/Show.vue": () => import("./assets/Show-43f182fd.js"), "./Pages/Settings/Components/Backup.vue": () => import("./assets/Backup-c868c42a.js"), "./Pages/Settings/Show.vue": () => import("./assets/Show-d2c2f6dc.js") })),
   setup({ el, App, props, plugin }) {
-    return createApp({ render: () => h$1(App, props) }).use(plugin).use(VueShortkey).use(Toast, toastOptions).use(P).use(VueEasymde).use(VueMarkdownEditor).mount(el);
+    return createApp({ render: () => h$1(App, props) }).use(plugin).use(VueShortkey).use(Toast, toastOptions).use(P).use(autoAnimatePlugin).use(VueEasymde).use(VueMarkdownEditor).mount(el);
   },
   progress: {
     color: "#4B5563"

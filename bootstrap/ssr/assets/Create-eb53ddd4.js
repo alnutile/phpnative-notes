@@ -1,10 +1,9 @@
-import { withCtx, unref, createTextVNode, isRef, createVNode, withDirectives, vModelText, useSSRContext } from "vue";
+import { withCtx, unref, createTextVNode, isRef, createVNode, withDirectives, vModelText, withModifiers, useSSRContext } from "vue";
 import { ssrRenderComponent, ssrRenderAttr } from "vue/server-renderer";
-import { _ as _sfc_main$1 } from "./Layout-49ec2c64.js";
+import { _ as _sfc_main$1 } from "./Layout-85fa3394.js";
 import { useForm } from "@inertiajs/vue3";
 import { _ as _sfc_main$2 } from "./ActionMessage-8d62f3c2.js";
-import _sfc_main$3 from "./ResourceNoEditor-cac4994d.js";
-import "@headlessui/vue";
+import _sfc_main$3 from "./ResourceNoEditor-4fc0ec5d.js";
 import "@heroicons/vue/24/outline";
 import "vue-toastification";
 const _sfc_main = {
@@ -42,12 +41,27 @@ const _sfc_main = {
               }),
               _: 1
             }, _parent2, _scopeId));
-            _push2(`</div>`);
+            _push2(`</div><form${_scopeId}><div${_scopeId}>`);
             _push2(ssrRenderComponent(_sfc_main$3, {
               modelValue: unref(form),
               "onUpdate:modelValue": ($event) => isRef(form) ? form.value = $event : null
             }, null, _parent2, _scopeId));
-            _push2(`</div>`);
+            _push2(`</div><div class="flex gap-4 items-center mt-4"${_scopeId}><button type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"${_scopeId}> Save </button>`);
+            _push2(ssrRenderComponent(_sfc_main$2, {
+              on: unref(form).recentlySuccessful
+            }, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(`saved`);
+                } else {
+                  return [
+                    createTextVNode("saved")
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+            _push2(`</div></form></div>`);
           } else {
             return [
               createVNode("div", null, [
@@ -79,10 +93,30 @@ const _sfc_main = {
                     _: 1
                   }, 8, ["on"])
                 ]),
-                createVNode(_sfc_main$3, {
-                  modelValue: unref(form),
-                  "onUpdate:modelValue": ($event) => isRef(form) ? form.value = $event : null
-                }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                createVNode("form", {
+                  onSubmit: withModifiers(save, ["prevent"])
+                }, [
+                  createVNode("div", null, [
+                    createVNode(_sfc_main$3, {
+                      modelValue: unref(form),
+                      "onUpdate:modelValue": ($event) => isRef(form) ? form.value = $event : null
+                    }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                  ]),
+                  createVNode("div", { class: "flex gap-4 items-center mt-4" }, [
+                    createVNode("button", {
+                      type: "submit",
+                      class: "inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                    }, " Save "),
+                    createVNode(_sfc_main$2, {
+                      on: unref(form).recentlySuccessful
+                    }, {
+                      default: withCtx(() => [
+                        createTextVNode("saved")
+                      ]),
+                      _: 1
+                    }, 8, ["on"])
+                  ])
+                ], 32)
               ])
             ];
           }

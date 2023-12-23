@@ -1,8 +1,7 @@
 import { withCtx, createVNode, useSSRContext } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";
-import { _ as _sfc_main$1 } from "./Layout-49ec2c64.js";
+import { _ as _sfc_main$1 } from "./Layout-85fa3394.js";
 import "@inertiajs/vue3";
-import "@headlessui/vue";
 import "@heroicons/vue/24/outline";
 const _sfc_main = {
   __name: "Index",

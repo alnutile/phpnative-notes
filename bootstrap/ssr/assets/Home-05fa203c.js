@@ -1,9 +1,8 @@
 import { mergeProps, unref, useSSRContext, resolveDirective, withCtx, createVNode, createTextVNode, toDisplayString, openBlock, createBlock, createCommentVNode, withModifiers, withDirectives, vModelText, Fragment, renderList } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderComponent, ssrRenderAttr, ssrGetDirectiveProps } from "vue/server-renderer";
-import { _ as _sfc_main$2, T as Tag } from "./Layout-49ec2c64.js";
+import { _ as _sfc_main$2, T as Tag } from "./Layout-85fa3394.js";
 import { Link, useForm, router } from "@inertiajs/vue3";
 import { useToast } from "vue-toastification";
-import "@headlessui/vue";
 import "@heroicons/vue/24/outline";
 const _sfc_main$1 = {
   __name: "Pagination",
@@ -76,6 +75,7 @@ const _sfc_main = {
     };
     return (_ctx, _push, _parent, _attrs) => {
       const _directive_shortkey = resolveDirective("shortkey");
+      const _directive_auto_animate = resolveDirective("auto-animate");
       _push(ssrRenderComponent(_sfc_main$2, _attrs, {
         header: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -148,9 +148,25 @@ const _sfc_main = {
               }),
               _: 1
             }, _parent2, _scopeId));
-            _push2(`</h2><div class="grid grid-cols-1 justify-center gap-2 mx-auto w-full"${_scopeId}><!--[-->`);
+            _push2(`</h2><div${ssrRenderAttrs(mergeProps({ class: "grid grid-cols-1 justify-center gap-2 mx-auto w-full" }, ssrGetDirectiveProps(_ctx, _directive_auto_animate)))}${_scopeId}><!--[-->`);
             ssrRenderList(__props.notes.data, (note) => {
-              _push2(`<div class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"${_scopeId}><h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-pink-600 flex items-center justify-between"${_scopeId}><span${_scopeId}>${ssrInterpolate(note.title)}</span> <span class="text-sm"${_scopeId}>${ssrInterpolate(note.date)}</span></h5><div class="font-normal text-gray-700 dark:text-gray-400"${_scopeId}>${note.truncated}</div><div class="flex justify-end gap-2 items-center mt-5"${_scopeId}>`);
+              _push2(`<div class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"${_scopeId}><h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-pink-600 flex items-center justify-between"${_scopeId}>`);
+              _push2(ssrRenderComponent(unref(Link), {
+                href: note.route,
+                type: "button"
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`${ssrInterpolate(note.title)}`);
+                  } else {
+                    return [
+                      createTextVNode(toDisplayString(note.title), 1)
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent2, _scopeId));
+              _push2(`<span class="text-sm"${_scopeId}>${ssrInterpolate(note.date)}</span></h5><div class="font-normal text-gray-700 dark:text-gray-400"${_scopeId}>${note.truncated}</div><div class="flex justify-end gap-2 items-center mt-5"${_scopeId}>`);
               _push2(ssrRenderComponent(unref(Link), {
                 href: note.route,
                 type: "button",
@@ -268,15 +284,22 @@ const _sfc_main = {
                       [_directive_shortkey, ["ctrl", "c"]]
                     ])
                   ]),
-                  createVNode("div", { class: "grid grid-cols-1 justify-center gap-2 mx-auto w-full" }, [
+                  withDirectives((openBlock(), createBlock("div", { class: "grid grid-cols-1 justify-center gap-2 mx-auto w-full" }, [
                     (openBlock(true), createBlock(Fragment, null, renderList(__props.notes.data, (note) => {
                       return openBlock(), createBlock("div", {
                         key: note.id,
                         class: "block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                       }, [
                         createVNode("h5", { class: "mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-pink-600 flex items-center justify-between" }, [
-                          createVNode("span", null, toDisplayString(note.title), 1),
-                          createTextVNode(),
+                          createVNode(unref(Link), {
+                            href: note.route,
+                            type: "button"
+                          }, {
+                            default: withCtx(() => [
+                              createTextVNode(toDisplayString(note.title), 1)
+                            ]),
+                            _: 2
+                          }, 1032, ["href"]),
                           createVNode("span", { class: "text-sm" }, toDisplayString(note.date), 1)
                         ]),
                         createVNode("div", {
@@ -297,6 +320,8 @@ const _sfc_main = {
                         ])
                       ]);
                     }), 128))
+                  ])), [
+                    [_directive_auto_animate]
                   ]),
                   createVNode("div", { class: "mt-4" }, [
                     createVNode(_sfc_main$1, {

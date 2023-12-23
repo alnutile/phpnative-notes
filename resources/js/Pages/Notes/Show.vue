@@ -3,11 +3,9 @@ import AppLayout from '@/Layouts/Layout.vue';
 import {useForm, usePage} from "@inertiajs/vue3";
 import ActionMessage from "@/Components/ActionMessage.vue";
 import { CheckIcon } from "@heroicons/vue/20/solid/index.js";
-import Resource from "@/Pages/Notes/Components/ResourceNoEditor.vue";
 import Tagger from "@/Components/Tagger.vue";
 import {onBeforeUnmount, onMounted, ref} from "vue";
-import ResourceNoEditor
-    from "../../../../dist/linux-unpacked/resources/app.asar.unpacked/resources/app/resources/js/Pages/Notes/Components/ResourceNoEditor.vue";
+import ResourceNoEditor  from "@/Pages/Notes/Components/ResourceNoEditor.vue";
 
 const inactivityTime = ref();
 
