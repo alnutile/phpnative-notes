@@ -29,6 +29,7 @@
         "@kangc/v-md-editor": "^2.3.18",
         "easymde": "^2.18.0",
         "vue-toastification": "^2.0.0-rc.5",
+        "vue3-dropzone": "^2.2.0",
         "vue3-easymde": "^1.0.1",
         "vue3-shortkey": "^4.0.0"
     }

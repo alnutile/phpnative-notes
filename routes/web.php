@@ -38,7 +38,14 @@ Route::post('/seed', function () {
 
 })->name('run.seed');
 
-Route::post("/upload/{note}", [\App\Http\Controllers\UploadFileController::class, 'upload'])->name('upload.file');
+Route::post("/upload/{note}", [\App\Http\Controllers\UploadFileController::class, 'upload'])->name('files.create');
+
+Route::get('/files/{file}', [
+    \App\Http\Controllers\UploadFileController::class, 'getFile'
+])
+    ->name('files.file.get');
+
+
 
 Route::post('/force_migration', function () {
 

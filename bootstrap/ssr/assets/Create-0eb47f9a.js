@@ -3,7 +3,7 @@ import { ssrRenderComponent, ssrRenderAttr } from "vue/server-renderer";
 import { _ as _sfc_main$1 } from "./Layout-85fa3394.js";
 import { useForm } from "@inertiajs/vue3";
 import { _ as _sfc_main$2 } from "./ActionMessage-8d62f3c2.js";
-import _sfc_main$3 from "./ResourceNoEditor-4fc0ec5d.js";
+import _sfc_main$3 from "./ResourceNoEditor-dd0373fe.js";
 import "@heroicons/vue/24/outline";
 import "vue-toastification";
 const _sfc_main = {

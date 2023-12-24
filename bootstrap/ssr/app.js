@@ -512,7 +512,7 @@ const toastOptions = {
 const appName = "Laravel";
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
-  resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Dashboard/Home.vue": () => import("./assets/Home-05fa203c.js"), "./Pages/Notes/Components/ResourceNoEditor.vue": () => import("./assets/ResourceNoEditor-4fc0ec5d.js"), "./Pages/Notes/Create.vue": () => import("./assets/Create-eb53ddd4.js"), "./Pages/Notes/Index.vue": () => import("./assets/Index-9ea8e849.js"), "./Pages/Notes/Show.vue": () => import("./assets/Show-43f182fd.js"), "./Pages/Settings/Components/Backup.vue": () => import("./assets/Backup-c868c42a.js"), "./Pages/Settings/Show.vue": () => import("./assets/Show-d2c2f6dc.js") })),
+  resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Dashboard/Home.vue": () => import("./assets/Home-05fa203c.js"), "./Pages/Notes/Components/ResourceNoEditor.vue": () => import("./assets/ResourceNoEditor-dd0373fe.js"), "./Pages/Notes/Create.vue": () => import("./assets/Create-0eb47f9a.js"), "./Pages/Notes/Index.vue": () => import("./assets/Index-9ea8e849.js"), "./Pages/Notes/Show.vue": () => import("./assets/Show-297a31e0.js"), "./Pages/Settings/Components/Backup.vue": () => import("./assets/Backup-c868c42a.js"), "./Pages/Settings/Show.vue": () => import("./assets/Show-345c0ca4.js") })),
   setup({ el, App, props, plugin }) {
     return createApp({ render: () => h$1(App, props) }).use(plugin).use(VueShortkey).use(Toast, toastOptions).use(P).use(autoAnimatePlugin).use(VueEasymde).use(VueMarkdownEditor).mount(el);
   },

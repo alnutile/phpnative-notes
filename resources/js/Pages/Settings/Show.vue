@@ -9,7 +9,7 @@ const toast = useToast()
 
 const props = defineProps({
     note: Object,
-    storage_path: String,
+    settings: Object,
 })
 
 
@@ -48,7 +48,10 @@ const runSeed = () => {
         <div>
             <h2 class="text-white text-2xl">Settings</h2>
             <div class="max-w-full mx-auto dark:text-gray-300 mt-10">
-                <div>Storage Page: {{ storage_path }}</div>
+                <div>
+                    <h2>Settings</h2>
+                    {{ settings }}
+                </div>
 
                 <div>
                     <h2>Backup</h2>

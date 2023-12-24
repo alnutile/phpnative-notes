@@ -16,28 +16,6 @@ const props = defineProps({
 const emits = defineEmits(['update:modelValue'])
 
 
-const form = useForm({
-    file: null
-})
-
-
-
-const handleUploadImage = (event, insertImage, files) => {
-    console.log(files[0]);
-    console.log(insertImage);
-
-    form.file = files[0];
-
-    form.post(route('upload.file', {
-        note: props.note?.id
-    }), {
-        preserveScroll: true,
-        onSuccess: () => {
-            form.reset();
-        },
-    });
-}
-
 </script>
 
 <template>
