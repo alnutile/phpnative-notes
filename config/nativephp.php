@@ -29,7 +29,7 @@ return [
     /**
      * The author of your application.
      */
-    'author' => "Alfred Nutile",
+    'author' => 'Alfred Nutile',
 
     /**
      * The default service provider for your application. This provider

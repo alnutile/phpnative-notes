@@ -20,9 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/tags', function () {
     $tag = request()->tag;
-    return response()->json(\App\Models\Tag::where('name', 'LIKE', $tag . "%")
+
+    return response()->json(\App\Models\Tag::where('name', 'LIKE', $tag.'%')
         ->select('id', 'name')
         ->orderBy('name')
         ->get());
 
-})->name("api.tags");
+})->name('api.tags');

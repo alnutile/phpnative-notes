@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Import;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/export", [\App\Http\Controllers\BackupController::class, 'backup'])->name("backup");
+Route::get('/export', [\App\Http\Controllers\BackupController::class, 'backup'])->name('backup');
 
 Route::get('/settings', [\App\Http\Controllers\SettingsController::class, 'show'])->name('settings');
 
-Route::post("/notes/{note}/tag/{tag}/remove", [\App\Http\Controllers\TagController::class, 'remove'])->name('notes.tag.remove');
+Route::post('/notes/{note}/tag/{tag}/remove', [\App\Http\Controllers\TagController::class, 'remove'])->name('notes.tag.remove');
 
-Route::post("/notes/{note}/tag", [\App\Http\Controllers\TagController::class, 'attach'])->name('notes.tag');
+Route::post('/notes/{note}/tag', [\App\Http\Controllers\TagController::class, 'attach'])->name('notes.tag');
 
 Route::post('/seed', function () {
 
@@ -38,14 +37,12 @@ Route::post('/seed', function () {
 
 })->name('run.seed');
 
-Route::post("/upload/{note}", [\App\Http\Controllers\UploadFileController::class, 'upload'])->name('files.create');
+Route::post('/upload/{note}', [\App\Http\Controllers\UploadFileController::class, 'upload'])->name('files.create');
 
 Route::get('/files/{file}', [
-    \App\Http\Controllers\UploadFileController::class, 'getFile'
+    \App\Http\Controllers\UploadFileController::class, 'getFile',
 ])
     ->name('files.file.get');
-
-
 
 Route::post('/force_migration', function () {
 

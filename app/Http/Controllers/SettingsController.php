@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use Facades\Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Storage;
-
 class SettingsController extends Controller
 {
     public function show()
@@ -16,12 +12,11 @@ class SettingsController extends Controller
             'storage_path' => config('nativephp-internal.storage_path'),
             'storage_path_env' => env('NATIVEPHP_STORAGE_PATH'),
             'database_path' => env('NATIVEPHP_DATABASE_PATH'),
-            'filesystem' =>  config('filesystems.disks')
+            'filesystem' => config('filesystems.disks'),
         ];
 
-
         return inertia('Settings/Show', [
-            'settings' => $settings
+            'settings' => $settings,
         ]);
     }
 }

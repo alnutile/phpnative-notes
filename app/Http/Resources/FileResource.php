@@ -20,9 +20,9 @@ class FileResource extends JsonResource
             'id' => $this->id,
             'type' => $this->type,
             'data' => base64_encode(Storage::disk('documents')
-                ->get('Notes/' . $this->note_id . '/Files/' .$this->name)),
+                ->get('Notes/'.$this->note_id.'/Files/'.$this->name)),
             'link' => route('files.file.get', [
-                'file' => $this->id
+                'file' => $this->id,
             ]),
         ];
     }

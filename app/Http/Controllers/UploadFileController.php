@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use App\Models\Note;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class UploadFileController extends Controller
 {
-
     public function upload(Note $note)
     {
         $validate = request()->validate([
@@ -20,7 +18,7 @@ class UploadFileController extends Controller
             $name = $file->getClientOriginalName();
 
             $file->storeAs(
-                path: "Notes/" .$note->id.'/Files/',
+                path: 'Notes/'.$note->id.'/Files/',
                 name: $name,
                 options: ['disk' => 'documents']
             );
@@ -32,19 +30,18 @@ class UploadFileController extends Controller
             File::create([
                 'note_id' => $note->id,
                 'name' => $name,
-                'type' => $mimeType
+                'type' => $mimeType,
             ]);
         }
 
-
-        request()->session()->flash("message", "Upload complete!");
+        request()->session()->flash('message', 'Upload complete!');
 
         return back();
     }
 
     public function getFile(File $file)
     {
-        $path = 'Notes/' . $file->note->id. '/Files/' . $file->name;
+        $path = 'Notes/'.$file->note->id.'/Files/'.$file->name;
 
         return Storage::disk('documents')->download($path);
 

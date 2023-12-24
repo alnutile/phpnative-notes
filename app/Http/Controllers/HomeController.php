@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\NoteResource;
-use App\Http\Resources\TagResource;
 use App\Models\Note;
-use App\Models\Tag;
 use Illuminate\Database\Eloquent\Builder;
 
 class HomeController extends Controller
@@ -25,11 +23,11 @@ class HomeController extends Controller
                     ->paginate(5);
             } else {
                 $results = Note::when($tag, function ($query) use ($tag) {
-                    $query->whereHas("tags", function (Builder $query) use ($tag) {
-                        $query->whereRaw("LOWER(name) = ?", [strtolower($tag)]);
+                    $query->whereHas('tags', function (Builder $query) use ($tag) {
+                        $query->whereRaw('LOWER(name) = ?', [strtolower($tag)]);
                     });
                 })
-                    ->latest("updated_at")
+                    ->latest('updated_at')
                     ->paginate(5);
             }
         } catch (\Exception $e) {

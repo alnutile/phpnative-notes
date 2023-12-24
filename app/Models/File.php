@@ -18,7 +18,7 @@ class File extends Model
 
     protected $guarded = [];
 
-    public function note() : BelongsTo
+    public function note(): BelongsTo
     {
         return $this->belongsTo(Note::class);
     }

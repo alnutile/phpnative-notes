@@ -38,7 +38,7 @@ class Note extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function attachTag(string $tag, string $type = null): void
+    public function attachTag(string $tag, ?string $type = null): void
     {
         $tag = Tag::firstOrCreate(['name' => $tag], ['type' => $type]);
 
@@ -52,7 +52,7 @@ class Note extends Model
         }
     }
 
-    public function files() : HasMany
+    public function files(): HasMany
     {
         return $this->hasMany(File::class);
     }

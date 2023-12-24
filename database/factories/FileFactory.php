@@ -20,7 +20,7 @@ class FileFactory extends Factory
         return [
             'name' => fake()->word,
             'type' => fake()->mimeType(),
-            'note_id' => Note::factory()
+            'note_id' => Note::factory(),
         ];
     }
 }

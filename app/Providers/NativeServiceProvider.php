@@ -10,7 +10,6 @@ use Native\Laravel\Commands\MigrateCommand;
 use Native\Laravel\Commands\MinifyApplicationCommand;
 use Native\Laravel\Logging\LogWatcher;
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class NativeServiceProvider extends \Native\Laravel\NativeServiceProvider
 {
