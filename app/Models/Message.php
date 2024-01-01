@@ -50,7 +50,7 @@ class Message extends Model
      */
     public function compressMessage($message): array|string|null
     {
-        if (! config('temp.compressed_messages')) {
+        if (! config('openai.compressed_messages')) {
             return $message;
         }
 

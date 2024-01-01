@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Chat;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,7 @@ class MessageFactory extends Factory
         return [
             'body' => $this->faker->paragraphs(3, true),
             'in_out' => $this->faker->boolean,
+            'chat_id' => Chat::factory()
         ];
     }
 }

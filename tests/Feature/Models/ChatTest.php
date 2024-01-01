@@ -4,21 +4,15 @@ namespace Tests\Feature;
 
 use App\Models\Chat;
 use App\Models\Message;
-use AssertionError;
-use http\Client;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use OpenAI\Laravel\Facades\OpenAI;
 use OpenAI\Responses\Chat\CreateResponse;
-use OpenAI\Responses\Chat\CreateStreamedResponse;
 use OpenAI\Responses\Completions\CreateResponse as CompletionResponse;
-use OpenAI\Testing\ClientFake;
 use Tests\TestCase;
 
 class ChatTest extends TestCase
 {
-
-    public function test_start_chat() {
+    public function test_start_chat()
+    {
 
         OpenAI::fake(
             [
@@ -32,7 +26,6 @@ class ChatTest extends TestCase
             ]
         );
 
-
         $chat = Chat::factory()->create();
 
         $message = $chat->addInput(
@@ -44,7 +37,8 @@ class ChatTest extends TestCase
         $this->assertEquals('awesome!', $chat->refresh()->title);
     }
 
-    public function test_output() {
+    public function test_output()
+    {
 
         OpenAI::fake(
             [
@@ -54,10 +48,9 @@ class ChatTest extends TestCase
                             'text' => 'awesome!',
                         ],
                     ],
-                ])
+                ]),
             ]
         );
-
 
         $chat = Chat::factory()->create();
 
@@ -65,7 +58,7 @@ class ChatTest extends TestCase
          * Create the starting message
          */
         Message::factory()->create([
-            'chat_id' => $chat->id
+            'chat_id' => $chat->id,
         ]);
 
         $this->assertDatabaseCount('messages', 1);
